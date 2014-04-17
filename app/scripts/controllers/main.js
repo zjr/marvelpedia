@@ -18,11 +18,11 @@ angular.module('marvelPediaApp')
       method: 'GET',
       url: baseUrl
     })
-      .success(function() {
-        $scope.result = arguments;
-      })
-      .error(function() {
-        $scope.result = arguments;
-      });
+    .success(function() {
+      $scope.result = arguments;
+    })
+    .error(function() {
+      $scope.result = arguments;
+    });
 
   });
