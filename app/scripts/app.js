@@ -18,13 +18,13 @@ angular
   }]);
 
 angular.module('marvelPediaApp')
-    .factory('LoDash', function($window){
+    .factory('LoDash', ['$window', function($window){
       var _ = $window._;
 
       return _;
-    });
+    }]);
 
 angular.module('marvelPediaApp')
-    .factory('_', function(LoDash){
+    .factory('_', ['LoDash', function(LoDash){
       return LoDash;
-    });
+    }]);

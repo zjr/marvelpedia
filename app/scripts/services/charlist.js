@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('marvelPediaApp')
-  .factory('CharData', ['Restangular', 'LoDash', function (Restangular, _) {
+  .factory('CharData', ['Restangular', function (Restangular) {
     var list = [];
 
     return {

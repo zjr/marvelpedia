@@ -54,11 +54,11 @@ angular.module('marvelPediaApp')
               }
             }
 
-            var modalInstanceCtrl = function ($scope, $modalInstance) {
+            var modalInstanceCtrl = ['$scope', '$modalInstance', function ($scope, $modalInstance) {
               $scope.close = function () {
                 $modalInstance.dismiss();
               };
-            };
+            }];
 
             var modalInstance = $modal.open({
               templateUrl: 'views/searchDetail.html',
