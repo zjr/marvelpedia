@@ -1,1 +1,14 @@
-<h1>{{character.name}}</h1>
+<div class="modal-header">
+  <h2>{{ character.name }}</h2>
+</div>
+<div class="modal-body">
+  <carousel interval="3000">
+      <slide ng-repeat="comicImage in comicImages" active="slide.active">
+        <img ng-src="{{ comicImage }}" style="margin:auto;">
+      </slide>
+  </carousel>
+  <p class="character-description">{{ character.description }}</p>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-default" ng-click="close()">Close</button>
+</div>

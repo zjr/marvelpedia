@@ -34,14 +34,29 @@ angular.module('marvelPediaApp')
               return _.find(searchData, function (i) {
                 return i.id === parseInt($stateParams.id);
               });
+            }],
+            comicList: ['$stateParams', 'CharData', function ($stateParams, CharData) {
+              return CharData.getComics($stateParams.id).then(function (data) {
+                return data;
+              });
             }]
           },
-          controller: ['$scope', '$state', 'characterData', '$modal', function ($scope, $state, characterData, $modal) {
+          controller: ['$scope', '$state', 'characterData', 'comicList', '$modal', function ($scope, $state, characterData, comicList, $modal) {
             $scope.character = characterData;
+            $scope.comicImages = [];
+
+            var comics = comicList.data.results;
+
+            for (var i in comics) {
+              for (var j in comics[i].images) {
+                var imageObj = comics[i].images[j];
+                $scope.comicImages.push(imageObj.path + '.' + imageObj.extension);
+              }
+            }
 
             var modalInstanceCtrl = function ($scope, $modalInstance) {
               $scope.close = function () {
-                $modalInstance.close();
+                $modalInstance.dismiss();
               };
             };
 

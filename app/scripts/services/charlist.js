@@ -16,11 +16,8 @@ angular.module('marvelPediaApp')
       get: function () {
         return list;
       },
-      getItem: function (itemId) {
-        var item = _.find(list, function (i) {
-          return i.id === parseInt(itemId);
-        });
-        return item;
+      getComics: function (charId) {
+        return Restangular.one('characters', charId).one('comics').get();
       }
     };
   }]);
