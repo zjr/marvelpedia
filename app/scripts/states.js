@@ -29,7 +29,6 @@ angular.module('marvelPediaApp')
       url: '/detail/:id',
       views: {
         'detail@search': {
-          templateUrl: 'views/searchDetail.html',
           resolve: {
             characterData: ['searchData', '$stateParams', 'LoDash', function (searchData, $stateParams, _) {
               return _.find(searchData, function (i) {
@@ -37,8 +36,25 @@ angular.module('marvelPediaApp')
               });
             }]
           },
-          controller: ['$scope', 'characterData', function ($scope, characterData) {
+          controller: ['$scope', '$state', 'characterData', '$modal', function ($scope, $state, characterData, $modal) {
             $scope.character = characterData;
+
+            var modalInstanceCtrl = function ($scope, $modalInstance) {
+              $scope.close = function () {
+                $modalInstance.close();
+              };
+            };
+
+            var modalInstance = $modal.open({
+              templateUrl: 'views/searchDetail.html',
+              controller: modalInstanceCtrl,
+              scope: $scope
+            });
+
+            modalInstance.result.then(null, function () {
+              $state.go('^');
+            });
+
           }]
         }
       }
