@@ -14,10 +14,10 @@ angular.module('marvelPediaApp')
     .state('search', {
       url: '/search/:name',
       templateUrl: 'views/searchList.html',
-      controller: function ($scope, $stateParams, Restangular) {
+      controller: ['$scope', '$stateParams', 'Restangular', function ($scope, $stateParams, Restangular) {
         Restangular.one('characters').get({nameStartsWith: $stateParams.name}).then(function(charactersObj) {
           $scope.characters = charactersObj.data.results;
         });
-      }
+      }]
     });
 }]);

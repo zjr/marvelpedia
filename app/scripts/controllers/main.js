@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('marvelPediaApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', ['$scope', function ($scope) {
     $scope.thing = "that thing";
-  });
+  }]);
