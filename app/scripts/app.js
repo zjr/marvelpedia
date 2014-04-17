@@ -5,6 +5,7 @@ angular
     'ngCookies',
     'ngSanitize',
     'ui.router',
+    'ui.bootstrap',
     'restangular'
   ])
   .config(['RestangularProvider', function (RestangularProvider) {
