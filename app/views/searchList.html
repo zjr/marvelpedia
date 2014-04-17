@@ -1,0 +1,7 @@
+<ul>
+  <li ng-repeat="char in characters">
+    <h3>{{ char.name }}</h3>
+    <p>{{ char.description }}</p>
+    <img ng-src="{{ char.thumbnail.path + '.' + char.thumbnail.extension }}">
+  </li>
+</ul>
