@@ -1,23 +1,33 @@
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/bootstrap.scss"
 
+.jumbotron > h2
+  margin-top: 0
+
+$cardHeight: 300px
 .card-container
-  height: 300px
+  height: $cardHeight
   padding: 10px
-  box-sizing: border-box
+
+.card-link
+  width: 100%
+  height: 100%
+  display: block
   overflow: hidden
-  background-clip: content-box
   background-size: cover
   background-position: center
   cursor: pointer
+  color: rgb(51, 51, 51)
+  &:hover
+    text-decoration: none
 
 .card
   z-index: 1
   position: relative
   padding: 10px 20px
   transition: all 0.3s
-  .card-container:hover &
+  .card-link:hover &
     opacity: 0
-    transform: translateY(-50%)
+    transform: translateY($cardHeight)
 
 .screen
   top: 0
@@ -27,5 +37,5 @@
   height: 100%
   transition: all 0.3s ease-in-out
   background-color: rgba(255, 255, 255, 0.8)
-  .card-container:hover &
+  .card-link:hover &
     background-color: rgba(255, 255, 255, 0)

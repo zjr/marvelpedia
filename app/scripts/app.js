@@ -15,3 +15,15 @@ angular
       $rootScope.$state = $state;
       $rootScope.$stateParams = $stateParams;
   }]);
+
+angular.module('marvelPediaApp')
+    .factory('LoDash', function($window){
+        var _ = $window._;
+
+        return _;
+    });
+
+angular.module('marvelPediaApp')
+    .factory('_', function(LoDash){
+        return LoDash;
+    });
